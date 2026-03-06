@@ -1,0 +1,38 @@
+# Dart
+dart_version/.dart_tool/
+dart_version/.packages
+dart_version/pubspec.lock
+dart_version/build/
+dart_version/*.xlsx
+
+# Kotlin/Gradle
+kotlin_version/.gradle/
+kotlin_version/build/
+kotlin_version/.idea/
+kotlin_version/*.iml
+kotlin_version/*.iws
+kotlin_version/*.ipr
+kotlin_version/out/
+kotlin_version/gradlew
+kotlin_version/gradlew.bat
+kotlin_version/gradle/
+kotlin_version/*.xlsx
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output files
+*.xlsx
+!sample_input/*.xlsx
+
+# Logs
+*.log
+
