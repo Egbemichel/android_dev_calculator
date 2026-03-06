@@ -1,6 +1,6 @@
 # Grade Calculator CLI
 
-A command-line application for calculating student grades and GPA from Excel files, implemented in both Dart and Kotlin.
+A command-line application for calculating student grades and GPA from Excel files, implemented in Dart.
 
 ## Overview
 
