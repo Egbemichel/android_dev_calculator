@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:runam/features/errand/controllers/errand_controllers.dart';
+import 'package:runam/services/graphql_client.dart';
+import 'controllers/auth_controller.dart';
+import 'controllers/buyer_errand_status_controller.dart';
+import 'controllers/buyer_tracking_controller.dart';
+import 'controllers/location_controller.dart';
+import 'app/app.dart';
+import 'app/graphql_provider_wrapper.dart';
+import 'features/errand/controllers/errand_draft_controller.dart';
+import 'features/errand/services/errand_service.dart';
+import 'controllers/runner_offer_controller.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await dotenv.load(fileName: ".env");
+  await GetStorage.init();
+  await GraphQLClientInstance.init(); // For unauthenticated requests
+
+  // Initialize controllers as singletons
+  Get.put(AuthController(), permanent: true);
+  Get.put(LocationController(), permanent: true);
+  Get.put(ErrandService(), permanent: true);
+  Get.put(ErrandDraftController(), permanent: true);
+  Get.put(ErrandController());
+  // Start session-level runner offers polling
+  Get.put(RunnerOfferController(), permanent: true);
+  Get.put(BuyerErrandStatusController(), permanent: true);
+  Get.put(BuyerTrackingController());
+
+  runApp(GraphQLProviderWrapper(child: const RunAmApp()));
+}
