@@ -15,6 +15,7 @@ RunAm is a location-based, on-demand errand platform that connects buyers who ne
 - Escrow-based payment handling for cash and online payments
 - Image uploads for errands (optional)
 - Persistent errand drafts (recoverable on app restart)
+- Something random
 
 ### User Roles
 - **Buyer**: creates and tracks errands
