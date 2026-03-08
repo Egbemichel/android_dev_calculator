@@ -20,7 +20,7 @@ void main(List<String> arguments) async {
   }
 
   try {
-    print('Reading input file: $inputFile');
+    print('\n📂 Reading input file: $inputFile\n');
 
     // Read input Excel file
     final bytes = File(inputFile).readAsBytesSync();
@@ -68,12 +68,12 @@ void main(List<String> arguments) async {
 
           final result = GradeCalculator.processStudent(name, marks);
           results.add(result);
-          print('Processed: ${result.name} - ${result.marks} marks -> ${result.grade} (GPA: ${result.gpa})');
+          print('✓ Processed: ${result.name} - ${result.marks} marks → ${result.grade} (GPA: ${result.gpa})');
         }
       }
     }
 
-    print('\nGenerating output file: $outputFile');
+    print('\n💾 Generating output file: $outputFile');
 
     // Create output Excel file
     final outputExcel = Excel.createExcel();
@@ -104,15 +104,15 @@ void main(List<String> arguments) async {
         ..createSync(recursive: true)
         ..writeAsBytesSync(outputBytes);
 
-      print('Successfully processed ${results.length} student(s)');
-      print('Output saved to: $outputFile');
+      print('✅ Successfully processed ${results.length} student(s)');
+      print('📁 Output saved to: $outputFile\n');
     } else {
       print('Error: Failed to encode output Excel file');
       exit(1);
     }
 
   } catch (e) {
-    print('Error processing Excel file: $e');
+    print('❌ Error processing Excel file: $e');
     exit(1);
   }
 }
